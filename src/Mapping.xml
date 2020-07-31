@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config id="TsfSharp" xmlns="urn:SharpGen.Config">
+  <assembly>TsfSharp</assembly>
+  <namespace>TsfSharp</namespace>
+
+  <depends>SharpGen.Runtime.COM</depends>
+
+  <sdk name="WindowsSdk" version="10.0.18362.0" />
+
+  <include file="windows.h" />
+  <include file="winuser.h" />
+  <include file="windef.h" namespace="TsfSharp">
+    <attach>POINT</attach>
+    <attach>SIZE</attach>
+    <attach>RECT</attach>
+  </include>
+
+  <include file="comcat.h" namespace="TsfSharp">
+    <attach>IEnumGUID</attach>
+  </include>
+
+  <include file="wtypesbase.h" namespace="TsfSharp">
+    <attach>COAUTHINFO</attach>
+    <attach>COAUTHIDENTITY</attach>
+  </include>
+
+  <include file="objidlbase.h" namespace="TsfSharp" attach="true" />
+
+  <include file="objidl.h" namespace="TsfSharp">
+    <attach>FORMATETC</attach>
+    <attach>DVTARGETDEVICE</attach>
+    <attach>IEnumFORMATETC</attach>
+    <attach>IEnumSTATDATA</attach>
+    <attach>IEnumSTATSTG</attach>
+    <attach>IAdviseSink</attach>
+    <attach>IDataObject</attach>
+    <attach>IStorage</attach>
+    <attach>STATDATA</attach>
+  </include>
+
+  <include file="textstor.h" namespace="TsfSharp" attach="true" />
+  <include file="ctfutb.h" namespace="TsfSharp" attach="true" />
+  <include file="msctf.h" namespace="TsfSharp" attach="true" />
+
+  <extension>
+    <create class="TsfSharp.Tsf" visibility="public static" />
+    <create class="TsfSharp.Functions" visibility="public static" />
+    <define struct="TsfSharp.StgMedium" sizeof="20" />
+  </extension>
+
+  <bindings>
+    <bind from="HWND" to="System.IntPtr" />
+    <bind from="HBITMAP" to="System.IntPtr" />
+    <bind from="HICON" to="System.IntPtr" />
+    <bind from="HENHMETAFILE" to="System.IntPtr" />
+    <bind from="HKL" to="System.IntPtr" />
+    <bind from="uSTGMEDIUM" to="TsfSharp.StgMedium" />
+  </bindings>
+
+  <mapping>
+    <map function="TF_(.*)" name-tmp="$1" group="TsfSharp.Tsf" dll='"msctf.dll"' />
+    <remove function="IEnumString.*" />
+    <remove function="IEnumUnknown.*" />
+    <remove function="ISequentialStream.*" />
+    <remove function="IStream.*" />
+
+    <remove method="IEnumSTATSTG::Next" />
+    <remove method="IStorage::Stat" />
+  </mapping>
+
+</config>
+
