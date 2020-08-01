@@ -3,6 +3,8 @@
   <assembly>TsfSharp</assembly>
   <namespace>TsfSharp</namespace>
 
+  <!-- WARNING this is a very incomplete mapping -->
+
   <depends>SharpGen.Runtime.COM</depends>
 
   <sdk name="WindowsSdk" version="10.0.18362.0" />
@@ -27,8 +29,8 @@
   <include file="objidlbase.h" namespace="TsfSharp" attach="true" />
 
   <include file="objidl.h" namespace="TsfSharp">
-    <attach>FORMATETC</attach>
     <attach>DVTARGETDEVICE</attach>
+    <attach>FORMATETC</attach>
     <attach>IEnumFORMATETC</attach>
     <attach>IEnumSTATDATA</attach>
     <attach>IEnumSTATSTG</attach>
@@ -44,8 +46,11 @@
 
   <extension>
     <create class="TsfSharp.Tsf" visibility="public static" />
-    <create class="TsfSharp.Functions" visibility="public static" />
     <define struct="TsfSharp.StgMedium" sizeof="20" />
+    <!--<define struct="TsfSharp.Statdata" sizeof="28" marshal="true" />-->
+
+    <create-cpp enum="TF_TMAE_FLAGS" macro="TF_TMAE_.*" />
+    <create-cpp enum="TS_LF_FLAGS" macro="TS_LF_.*" />
   </extension>
 
   <bindings>
@@ -55,6 +60,7 @@
     <bind from="HENHMETAFILE" to="System.IntPtr" />
     <bind from="HKL" to="System.IntPtr" />
     <bind from="uSTGMEDIUM" to="TsfSharp.StgMedium" />
+    <!--<bind from="STATDATA" to="TsfSharp.Statdata" />-->
   </bindings>
 
   <mapping>
@@ -66,6 +72,24 @@
 
     <remove method="IEnumSTATSTG::Next" />
     <remove method="IStorage::Stat" />
+
+    <map method="ITfThreadMgr::SetFocus" property="false" />
+    <map method="ITfThreadMgr::GetFocus" property="false" />
+
+    <map param="ITfThreadMgrEx::ActivateEx::dwFlags" type="TF_TMAE_FLAGS" />
+
+    <map interface="ITfActiveLanguageProfileNotifySink" callback="true" autogen-shadow="true" />
+    <map interface="ITfContextOwnerCompositionSink" callback="true" autogen-shadow="true" />
+    <map interface="ITfKeyTraceEventSink" callback="true" autogen-shadow="true" />
+    <map interface="ITfLanguageProfileNotifySink" callback="true" autogen-shadow="true" />
+    <map interface="ITfMouseSink" callback="true" autogen-shadow="true" />
+    <map interface="ITfStatusSink" callback="true" autogen-shadow="true" />
+    <map interface="ITfTextEditSink" callback="true" autogen-shadow="true" />
+
+    <map interface="ITextStoreACP" callback="true" autogen-shadow="true" />
+    <map interface="ITextStoreACP2" callback="true" autogen-shadow="true" />
+
+    <map param="ITextStoreACPSink::OnLockGranted::dwLockFlags" type="TS_LF_FLAGS" />
   </mapping>
 
 </config>
