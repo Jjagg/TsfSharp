@@ -51,6 +51,8 @@
 
     <create-cpp enum="TF_TMAE_FLAGS" macro="TF_TMAE_.*" />
     <create-cpp enum="TS_LF_FLAGS" macro="TS_LF_.*" />
+
+    <const from-macro="TF_INVALID_COOKIE" class="TsfSharp.Tsf" type="int">$1</const>
   </extension>
 
   <bindings>
