@@ -62,6 +62,9 @@
     <bind from="HENHMETAFILE" to="System.IntPtr" />
     <bind from="HKL" to="System.IntPtr" />
     <bind from="uSTGMEDIUM" to="TsfSharp.StgMedium" />
+
+    <bind from="BOOL" to="System.Boolean" />
+
     <!--<bind from="STATDATA" to="TsfSharp.Statdata" />-->
   </bindings>
 
@@ -87,6 +90,9 @@
     <map interface="ITfMouseSink" callback="true" autogen-shadow="true" />
     <map interface="ITfStatusSink" callback="true" autogen-shadow="true" />
     <map interface="ITfTextEditSink" callback="true" autogen-shadow="true" />
+
+    <map interface="ITfUIElementSink" callback="true" autogen-shadow="true" />
+      <map param="ITfUIElementSink::BeginUIElement::pbShow" attribute="out" />
 
     <map interface="ITextStoreACP" callback="true" autogen-shadow="true" />
     <map interface="ITextStoreACP2" callback="true" autogen-shadow="true" />
