@@ -15,6 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <SharpGenPlatforms Include="Windows" /> <!-- Enable code-gen for Windows platforms -->
+  </ItemGroup>
+
+  <ItemGroup>
     <SharpGenMapping Include="Mapping.xml" />
   </ItemGroup>
 

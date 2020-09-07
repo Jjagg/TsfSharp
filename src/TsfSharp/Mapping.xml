@@ -81,6 +81,7 @@
     <remove method="IStorage::Stat" />
     <remove interface="ITextStoreACP2" />
     <remove interface="ITextStoreAnchor" />
+    <remove interface="ITfMessagePump" />
 
     <map method="ITfThreadMgr::SetFocus" property="false" />
     <map method="ITfThreadMgr::GetFocus" property="false" />
