@@ -18,14 +18,16 @@ namespace SharpGen.Runtime.Win32
         /// <unmanaged-short>WindowsCreateString</unmanaged-short>
         public static unsafe void WindowsCreateString(System.String sourceString, System.UInt32 length, out System.IntPtr text)
         {
-            SharpGen.Runtime.Result __result__;
-            fixed (void *text_ = &text)
-                fixed (char *sourceString_ = sourceString)
-                    __result__ = WindowsCreateString_((void *)sourceString_, length, text_);
-            __result__.CheckError();
+            text = System.IntPtr.Zero;
+            //NOTE: remove WindowsCreateString to fix CoreRT compiling
+            //SharpGen.Runtime.Result __result__;
+            //fixed (void *text_ = &text)
+            //    fixed (char *sourceString_ = sourceString)
+            //        __result__ = WindowsCreateString_((void *)sourceString_, length, text_);
+            //__result__.CheckError();
         }
 
-        [System.Runtime.InteropServices.DllImportAttribute("api-ms-win-core-winrt-string-l1", EntryPoint = "WindowsCreateString", CallingConvention = System.Runtime.InteropServices.CallingConvention.StdCall)]
-        private unsafe static extern int WindowsCreateString_(void *param0, System.UInt32 param1, void *param2);
+        //[System.Runtime.InteropServices.DllImportAttribute("api-ms-win-core-winrt-string-l1", EntryPoint = "WindowsCreateString", CallingConvention = System.Runtime.InteropServices.CallingConvention.StdCall)]
+        //private unsafe static extern int WindowsCreateString_(void *param0, System.UInt32 param1, void *param2);
     }
 }
