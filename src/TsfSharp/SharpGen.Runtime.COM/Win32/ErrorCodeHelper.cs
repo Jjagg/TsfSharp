@@ -1,4 +1,4 @@
-// Copyright (c) 2010-2014 SharpDX - Alexandre Mutel
+﻿// Copyright (c) 2010-2014 SharpDX - Alexandre Mutel
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -18,20 +18,29 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-using System;
-using System.Runtime.InteropServices;
-using TsfSharp;
-
 namespace SharpGen.Runtime.Win32
 {
-    [StructLayout(LayoutKind.Sequential)]
-    public struct NativeMessage
+    public partial class ErrorCodeHelper
     {
-        public IntPtr handle;
-        public uint msg;
-        public IntPtr wParam;
-        public IntPtr lParam;
-        public uint time;
-        public Point p;
+        /// <summary>
+        /// Converts a win32 error code to a <see cref="Result"/>.
+        /// </summary>
+        /// <param name="errorCode">The error code.</param>
+        /// <returns>A HRESULT code</returns>
+        public static Result ToResult(ErrorCode errorCode)
+        {
+            return ToResult((int)errorCode);
+        }
+        
+        /// <summary>
+        /// Converts a win32 error code to a <see cref="Result"/>.
+        /// </summary>
+        /// <param name="errorCode">The error code.</param>
+        /// <returns>A HRESULT code</returns>
+        public static Result ToResult(int errorCode)
+        {
+            return new Result(((errorCode <= 0) ? unchecked((uint)errorCode) : ((unchecked((uint)errorCode) & 0x0000FFFF) | 0x80070000)));
+        }
     }
-} 
+}
+

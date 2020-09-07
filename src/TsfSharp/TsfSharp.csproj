@@ -1,17 +1,32 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;netstandard1.1;net45;</TargetFrameworks>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <Description>C# bindings for Windows Text Services</Description>
+    <PackageTags>IME;tsf;windows</PackageTags>
+    <PackageId>TsfSharp</PackageId>
+    <PackageProjectUrl>https://github.com/Jjagg/TsfSharp</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Jjagg/TsfSharp</RepositoryUrl>
+    <Authors>Jjagg;ryancheung</Authors>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.2.0</Version>
+  </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="SharpGen.Runtime" Version="1.2.1" />
-    <PackageReference Include="SharpGen.Runtime.COM" Version="1.2.0" />
+    <PackageReference Include="SharpGen.Runtime" Version="1.2.1" PrivateAssets="all" />
+    <PackageReference Include="SharpGen.Runtime.COM" Version="1.2.0" PrivateAssets="all" />
     <PackageReference Include="SharpGenTools.Sdk" Version="1.2.1">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <SharpGenPlatforms Include="Windows" /> <!-- Enable code-gen for Windows platforms -->
   </ItemGroup>
 
   <ItemGroup>

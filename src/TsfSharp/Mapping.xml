@@ -51,6 +51,10 @@
 
     <create-cpp enum="TF_TMAE_FLAGS" macro="TF_TMAE_.*" />
     <create-cpp enum="TS_LF_FLAGS" macro="TS_LF_.*" />
+    <create-cpp enum="TS_ERRORS" macro="TS_[ES]_.*" />
+    <create-cpp enum="TS_IAS_FLAGS" macro="TS_IAS_.*" />
+
+    <const from-macro="TF_INVALID_COOKIE" class="TsfSharp.Tsf" type="int">$1</const>
   </extension>
 
   <bindings>
@@ -60,6 +64,9 @@
     <bind from="HENHMETAFILE" to="System.IntPtr" />
     <bind from="HKL" to="System.IntPtr" />
     <bind from="uSTGMEDIUM" to="TsfSharp.StgMedium" />
+
+    <bind from="BOOL" to="System.Boolean" />
+
     <!--<bind from="STATDATA" to="TsfSharp.Statdata" />-->
   </bindings>
 
@@ -72,6 +79,9 @@
 
     <remove method="IEnumSTATSTG::Next" />
     <remove method="IStorage::Stat" />
+    <remove interface="ITextStoreACP2" />
+    <remove interface="ITextStoreAnchor" />
+    <remove interface="ITfMessagePump" />
 
     <map method="ITfThreadMgr::SetFocus" property="false" />
     <map method="ITfThreadMgr::GetFocus" property="false" />
@@ -86,10 +96,24 @@
     <map interface="ITfStatusSink" callback="true" autogen-shadow="true" />
     <map interface="ITfTextEditSink" callback="true" autogen-shadow="true" />
 
+    <map interface="ITfUIElementSink" callback="true" autogen-shadow="true" />
+      <map param="ITfUIElementSink::BeginUIElement::pbShow" attribute="out" />
+
     <map interface="ITextStoreACP" callback="true" autogen-shadow="true" />
-    <map interface="ITextStoreACP2" callback="true" autogen-shadow="true" />
+      <map param="ITextStoreACP::RequestLock::dwLockFlags" type="TS_LF_FLAGS" />
+      <map param="ITextStoreACP::GetSelection::ulCount" relation="length(pSelection)" />
+      <map param="ITextStoreACP::GetSelection::pSelection" type="TS_SELECTION_ACP" attribute="inout" />
+      <map param="ITextStoreACP::SetSelection::pSelection" type="TS_SELECTION_ACP" attribute="inout" />
+      <map param="ITextStoreACP::RetrieveRequestedAttrs::ulCount" relation="length(paAttrVals)" />
+      <map param="ITextStoreACP::RequestSupportedAttrs::cFilterAttrs" relation="length(paFilterAttrs)" />
+      <map param="ITextStoreACP::RequestAttrsAtPosition::cFilterAttrs" relation="length(paFilterAttrs)" />
+      <map param="ITextStoreACP::RequestAttrsTransitioningAtPosition::cFilterAttrs" relation="length(paFilterAttrs)" />
+      <map param="ITextStoreACP::FindNextAttrTransition::cFilterAttrs" relation="length(paFilterAttrs)" />
+      <map param="ITextStoreACP::GetText::cRunInfoReq" relation="length(prgRunInfo)" />
+      <map param="ITextStoreACP::InsertTextAtSelection::dwFlags" type="TS_IAS_FLAGS" />
 
     <map param="ITextStoreACPSink::OnLockGranted::dwLockFlags" type="TS_LF_FLAGS" />
+      <map method="ITextStoreACPSink::OnLockGranted" return="true" />
   </mapping>
 
 </config>
