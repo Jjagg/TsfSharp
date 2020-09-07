@@ -5,6 +5,15 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <Description>C# bindings for Windows Text Services</Description>
+    <PackageTags>IME;tsf;windows</PackageTags>
+    <PackageId>TsfSharp</PackageId>
+    <PackageProjectUrl>https://github.com/Jjagg/TsfSharp</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Jjagg/TsfSharp</RepositoryUrl>
+    <Authors>Jjagg;ryancheung</Authors>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="SharpGen.Runtime" Version="1.2.1" />
     <PackageReference Include="SharpGen.Runtime.COM" Version="1.2.0" />
