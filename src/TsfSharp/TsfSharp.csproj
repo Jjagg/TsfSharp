@@ -12,6 +12,8 @@
     <PackageProjectUrl>https://github.com/Jjagg/TsfSharp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Jjagg/TsfSharp</RepositoryUrl>
     <Authors>Jjagg;ryancheung</Authors>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
