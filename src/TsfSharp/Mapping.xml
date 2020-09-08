@@ -66,6 +66,7 @@
     <bind from="uSTGMEDIUM" to="TsfSharp.StgMedium" />
 
     <bind from="BOOL" to="System.Boolean" />
+    <bind from="BSTR" to="System.IntPtr" />
 
     <!--<bind from="STATDATA" to="TsfSharp.Statdata" />-->
   </bindings>
@@ -114,6 +115,17 @@
 
     <map param="ITextStoreACPSink::OnLockGranted::dwLockFlags" type="TS_LF_FLAGS" />
       <map method="ITextStoreACPSink::OnLockGranted" return="true" />
+
+    <map method="ITfCandidateListUIElement::GetSelection" property="false" />
+    <map method="ITfCandidateListUIElement::GetCurrentPage" property="false" />
+    <map method="ITfCandidateListUIElement::GetCount" property="false" />
+      <map param="ITfCandidateListUIElement::GetSelection::puIndex" attribute="out" />
+      <map param="ITfCandidateListUIElement::GetCurrentPage::puPage" attribute="out" />
+      <map param="ITfCandidateListUIElement::GetCount::puCount" attribute="out" />
+      <map param="ITfCandidateListUIElement::GetPageIndex::puPageCnt" attribute="out" />
+      <map param="ITfCandidateListUIElement::GetPageIndex::pIndex" attribute="buffer" />
+      <map param="ITfCandidateListUIElement::GetString::pstr" attribute="out" />
+    <map method="ITfCandidateListUIElementBehavior::SetSelection" property="false" />
   </mapping>
 
 </config>
