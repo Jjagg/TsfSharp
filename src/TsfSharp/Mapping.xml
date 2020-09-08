@@ -109,7 +109,7 @@
       <map param="ITextStoreACP::RequestAttrsAtPosition::cFilterAttrs" relation="length(paFilterAttrs)" />
       <map param="ITextStoreACP::RequestAttrsTransitioningAtPosition::cFilterAttrs" relation="length(paFilterAttrs)" />
       <map param="ITextStoreACP::FindNextAttrTransition::cFilterAttrs" relation="length(paFilterAttrs)" />
-      <map param="ITextStoreACP::GetText::cRunInfoReq" relation="length(prgRunInfo)" />
+      <map param="ITextStoreACP::GetText::prgRunInfo" attribute="inout" />
       <map param="ITextStoreACP::InsertTextAtSelection::dwFlags" type="TS_IAS_FLAGS" />
 
     <map param="ITextStoreACPSink::OnLockGranted::dwLockFlags" type="TS_LF_FLAGS" />
