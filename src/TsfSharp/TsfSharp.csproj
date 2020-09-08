@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Description>C# bindings for Windows Text Services</Description>
+    <Description>C# bindings for Windows Text Services Framework</Description>
     <PackageTags>IME;tsf;windows</PackageTags>
     <PackageId>TsfSharp</PackageId>
     <PackageProjectUrl>https://github.com/Jjagg/TsfSharp</PackageProjectUrl>
