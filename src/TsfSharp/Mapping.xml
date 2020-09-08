@@ -94,7 +94,7 @@
     <map interface="ITfLanguageProfileNotifySink" callback="true" autogen-shadow="true" />
     <map interface="ITfMouseSink" callback="true" autogen-shadow="true" />
     <map interface="ITfStatusSink" callback="true" autogen-shadow="true" />
-    <map interface="ITfTextEditSink" callback="true" autogen-shadow="true" />
+    <map interface="ITfTextEditSink" callback="true" callback-visibility="internal" shadow-name="TsfSharp.ITfTextEditSinkShadowImproved" vtbl-name="TsfSharp.ITfTextEditSinkShadowImproved.ITfTextEditSinkVtbl" />
 
     <map interface="ITfUIElementSink" callback="true" autogen-shadow="true" />
       <map param="ITfUIElementSink::BeginUIElement::pbShow" attribute="out" />
