@@ -105,11 +105,11 @@
       <map param="ITextStoreACP::GetSelection::ulCount" relation="length(pSelection)" />
       <map param="ITextStoreACP::GetSelection::pSelection" type="TS_SELECTION_ACP" attribute="inout" />
       <map param="ITextStoreACP::SetSelection::pSelection" type="TS_SELECTION_ACP" attribute="inout" />
-      <map param="ITextStoreACP::RetrieveRequestedAttrs::ulCount" relation="length(paAttrVals)" />
-      <map param="ITextStoreACP::RequestSupportedAttrs::cFilterAttrs" relation="length(paFilterAttrs)" />
-      <map param="ITextStoreACP::RequestAttrsAtPosition::cFilterAttrs" relation="length(paFilterAttrs)" />
-      <map param="ITextStoreACP::RequestAttrsTransitioningAtPosition::cFilterAttrs" relation="length(paFilterAttrs)" />
-      <map param="ITextStoreACP::FindNextAttrTransition::cFilterAttrs" relation="length(paFilterAttrs)" />
+      <map param="ITextStoreACP::RetrieveRequestedAttrs::paAttrVals" attribute="inout" />
+      <map param="ITextStoreACP::RequestSupportedAttrs::paFilterAttrs" attribute="inout" />
+      <map param="ITextStoreACP::RequestAttrsAtPosition::paFilterAttrs" attribute="inout" />
+      <map param="ITextStoreACP::RequestAttrsTransitioningAtPosition::paFilterAttrs" attribute="inout" />
+      <map param="ITextStoreACP::FindNextAttrTransition::paFilterAttrs" attribute="inout" />
       <map param="ITextStoreACP::GetText::prgRunInfo" attribute="inout" />
       <map param="ITextStoreACP::InsertTextAtSelection::dwFlags" type="TS_IAS_FLAGS" />
 
