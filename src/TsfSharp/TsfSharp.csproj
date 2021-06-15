@@ -1,9 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard1.1</TargetFrameworks>
+    <TargetFrameworks>net45;net471;netcoreapp3.1;netstandard2.0;net5.0</TargetFrameworks>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <NoWarn>0436</NoWarn>
+    <LangVersion>9.0</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -15,18 +16,16 @@
     <Authors>Jjagg;ryancheung</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>0.6.0</Version>
+    <Version>1.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SharpGen.Runtime" Version="1.2.1" PrivateAssets="all" />
-    <PackageReference Include="SharpGen.Runtime.COM" Version="1.2.0" PrivateAssets="all" />
-    <PackageReference Include="SharpGenTools.Sdk" Version="1.2.1">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    <PackageReference Include="SharpGen.Runtime" Version="2.0.0-beta.9" />
+    <PackageReference Include="SharpGen.Runtime.COM" Version="2.0.0-beta.9" />
+    <PackageReference Include="SharpGenTools.Sdk" Version="2.0.0-beta.9">
       <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-
-    <PackageReference Include="System.Memory" Version="4.5.2" />
   </ItemGroup>
 
   <ItemGroup>

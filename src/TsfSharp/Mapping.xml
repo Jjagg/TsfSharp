@@ -7,7 +7,7 @@
 
   <depends>SharpGen.Runtime.COM</depends>
 
-  <sdk name="WindowsSdk" version="10.0.18362.0" />
+  <sdk name="WindowsSdk" version="10.0.19041.0" />
 
   <include file="windows.h" />
   <include file="winuser.h" />
@@ -65,7 +65,6 @@
     <bind from="HKL" to="System.IntPtr" />
     <bind from="uSTGMEDIUM" to="TsfSharp.StgMedium" />
 
-    <bind from="BOOL" to="System.Boolean" />
     <bind from="BSTR" to="System.IntPtr" />
 
     <!--<bind from="STATDATA" to="TsfSharp.Statdata" />-->
