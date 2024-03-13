@@ -31,9 +31,14 @@
   <include file="objidl.h" namespace="TsfSharp">
     <attach>DVTARGETDEVICE</attach>
     <attach>FORMATETC</attach>
+    <attach>BIND_OPTS</attach>
     <attach>IEnumFORMATETC</attach>
     <attach>IEnumSTATDATA</attach>
     <attach>IEnumSTATSTG</attach>
+    <attach>IBindCtx</attach>
+    <attach>IMoniker</attach>
+    <attach>IEnumMoniker</attach>
+    <attach>IRunningObjectTable</attach>
     <attach>IAdviseSink</attach>
     <attach>IDataObject</attach>
     <attach>IStorage</attach>
